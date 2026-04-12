@@ -3,226 +3,594 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Boda Morazán Aldaco</title>
+<title>Boda Morazán & Aldaco</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap" rel="stylesheet">
 
 <style>
 
-* {
-  box-sizing: border-box;
+/* 🌿 FONDO ELEGANTE */
+body{
+    margin:0;
+    font-family:'Playfair Display', serif;
+    color:#2b2b2b;
+    background: radial-gradient(circle at top, #fffdf8, #f3efe6);
+    overflow-x:hidden;
 }
 
-body {
-  margin: 0;
-  font-family: 'Lato', sans-serif;
-  overflow-x: hidden;
+/* ✨ PARTÍCULAS DORADAS */
+.particle{
+    position:fixed;
+    width:6px;
+    height:6px;
+    background:rgba(176,141,87,0.6);
+    border-radius:50%;
+    pointer-events:none;
+    animation:floatParticles 10s linear infinite;
+    box-shadow:0 0 10px rgba(176,141,87,0.4);
+    z-index:1;
 }
 
-/* Fondo difuminado */
-.background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('foto.jpeg') no-repeat center center/cover;
-  filter: blur(7px);
-  transform: scale(1.1);
-  z-index: -2;
+@keyframes floatParticles{
+    0%{ transform:translateY(100vh) translateX(0); opacity:0; }
+    20%{ opacity:0.6; }
+    100%{ transform:translateY(-10vh) translateX(40px); opacity:0; }
 }
 
-/* Oscurecer fondo */
-.overlay-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(10, 25, 15, 0.72);
-  z-index: -1;
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(255,255,255,0.85);
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    padding:15px;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 30px 15px;
-  text-align: center;
-  color: white;
+nav a{
+    text-decoration:none;
+    color:#b08d57;
 }
 
-header {
-  padding: 50px 10px 20px;
+/* HERO */
+.hero{
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
 }
 
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.2em;
-  color: #d4af37;
-  margin: 0;
-  letter-spacing: 1px;
+.hero-slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    transition:opacity 1.5s ease-in-out;
 }
 
-header p {
-  color: #f5e6a8;
-  font-size: 1.2em;
+.hero-overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.45);
+    z-index:1;
 }
 
-footer p{
-  font-size: 1.3em;
-  text-align: center;
-  color: #d4af37;
-  font-family: 'Playfair Display', serif;
-  padding: 40px 10px;
+.hero-content{
+    position:relative;
+    z-index:2;
 }
 
-/* tarjetas */
-.card {
-  background: black;
-  color: #d4af37;
-  margin: 20px 0;
-  padding: 22px;
-  border-radius: 18px;
-  border: 2px solid #d4af37;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+.hero-content h1{
+    font-size:70px;
+    margin:0;
 }
 
-.divider {
-  width: 60px;
-  height: 3px;
-  background: #d4af37;
-  margin: 10px auto;
-  border-radius: 10px;
+.hero-content p{
+    font-size:22px;
 }
 
-h2 {
-  margin-bottom: 10px;
-  color: #f5e6a8;
-  font-family: 'Playfair Display', serif;
+/* SECCIONES */
+section{
+    padding:100px 20px;
+    max-width:1000px;
+    margin:auto;
+    text-align:center;
+    position:relative;
+    z-index:2;
 }
 
-/* BOTÓN */
-.btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 12px 24px;
-  background: #d4af37;
-  color: #1b3a2f;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+h2{
+    color:#b08d57;
+    font-size:40px;
 }
 
-.btn:hover {
-  background: #b8962e;
-  transform: scale(1.05);
+/* 🌟 ORNAMENTO CSS PREMIUM */
+.ornament-wrapper{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:25px;
+    margin-bottom:30px;
 }
 
-/* MAPA RESPONSIVE */
-.map-container {
-  width: 100%;
-  height: 300px;
-  border-radius: 12px;
-  overflow: hidden;
+/* líneas doradas laterales */
+.ornament-wrapper::before,
+.ornament-wrapper::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:linear-gradient(to right, transparent, #b08d57, transparent);
 }
 
-.map-container iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
+/* centro ornamental */
+.ornament{
+    position:relative;
+    width:120px;
+    height:60px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-
-  h1 {
-    font-size: 2.2em;
-  }
-
-  header p {
-    font-size: 1em;
-  }
-
-  .container {
-    padding: 15px;
-  }
-
-  .card {
-    padding: 15px;
-  }
-
-  .map-container {
-    height: 220px;
-  }
+/* hojas izquierda */
+.ornament::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:10px;
+    width:50px;
+    height:40px;
+    border-radius:0 60px 0 60px;
+    border:2px solid #b08d57;
+    transform:rotate(-25deg);
+    opacity:0.8;
 }
 
+/* hojas derecha */
+.ornament::after{
+    content:"";
+    position:absolute;
+    right:0;
+    top:10px;
+    width:50px;
+    height:40px;
+    border-radius:60px 0 60px 0;
+    border:2px solid #b08d57;
+    transform:rotate(25deg);
+    opacity:0.8;
+}
+
+/* centro pequeño dorado */
+.ornament span{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:10px;
+    height:10px;
+    background:#b08d57;
+    border-radius:50%;
+    box-shadow:0 0 10px rgba(176,141,87,0.5);
+}
+
+/* TEXTO */
+.story-text{
+    max-width:750px;
+    font-size:20px;
+    line-height:1.8;
+    margin:auto;
+}
+
+/* TARJETAS */
+.info{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    margin-top:40px;
+}
+
+.card{
+    background:rgba(255,255,255,0.92);
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    border-left:5px solid #b08d57;
+}
+
+/* GALERÍA */
+.gallery-container{
+    max-width:850px;
+    margin:auto;
+    position:relative;
+}
+
+.main-photo img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.arrow{
+    position:absolute;
+    top:40%;
+    transform:translateY(-50%);
+    background:#b08d57;
+    color:white;
+    border:none;
+    font-size:24px;
+    padding:10px 15px;
+    cursor:pointer;
+    border-radius:50%;
+}
+
+.left{ left:10px; }
+.right{ right:10px; }
+
+/* THUMBNAILS */
+.thumbnails{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:15px;
+    flex-wrap:wrap;
+}
+
+.thumbnails img{
+    width:80px;
+    height:60px;
+    object-fit:cover;
+    border-radius:8px;
+    cursor:pointer;
+    opacity:0.6;
+}
+
+.thumbnails img:hover{
+    opacity:1;
+}
+
+/* MAPA */
+.map{
+    width:100%;
+    height:300px;
+    border:0;
+    border-radius:12px;
+}
+
+/* FORM */
+iframe.form{
+    width:100%;
+    height:500px;
+    border:none;
+    border-radius:12px;
+}
+
+/* FOOTER */
+footer{
+    background:#1f1f1f;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:60px;
+}
+/* 📱 RESPONSIVE (CELULAR + TABLET) */
+@media (max-width: 1024px){
+
+    /* HERO */
+    .hero-content h1{
+        font-size:50px;
+    }
+
+    .hero-content p{
+        font-size:18px;
+        padding:0 10px;
+    }
+
+    /* TÍTULOS */
+    h2{
+        font-size:32px;
+    }
+
+    /* TEXTO HISTORIA */
+    .story-text{
+        font-size:18px;
+        padding:0 15px;
+    }
+
+    /* ORNAMENTO */
+    .ornament{
+        width:90px;
+        height:50px;
+    }
+
+    /* TARJETAS */
+    .card{
+        padding:18px;
+    }
+
+    /* GALERÍA */
+    .main-photo img{
+        height:300px;
+    }
+
+    .arrow{
+        font-size:18px;
+        padding:8px 12px;
+    }
+
+    .thumbnails img{
+        width:65px;
+        height:50px;
+    }
+
+    /* MAPA */
+    iframe{
+        width:100% !important;
+    }
+
+    /* FORMULARIO */
+    iframe.form{
+        height:420px;
+    }
+}
+
+/* 📱 CELULAR PEQUEÑO */
+@media (max-width: 600px){
+
+    nav{
+        flex-wrap:wrap;
+        gap:10px;
+        font-size:14px;
+    }
+
+    .hero-content h1{
+        font-size:34px;
+    }
+
+    .hero-content p{
+        font-size:15px;
+    }
+
+    .ornament-wrapper{
+        gap:10px;
+    }
+
+    .ornament{
+        width:70px;
+        height:40px;
+    }
+
+    .main-photo img{
+        height:220px;
+    }
+
+    .thumbnails img{
+        width:55px;
+        height:45px;
+    }
+
+    .arrow{
+        top:45%;
+    }
+
+    .story-text{
+        font-size:16px;
+    }
+
+    section{
+        padding:70px 15px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<div class="background"></div>
-<div class="overlay-bg"></div>
+<!-- ✨ PARTÍCULAS DORADAS -->
+<script>
+for(let i=0;i<25;i++){
+    let p = document.createElement("div");
+    p.className = "particle";
+    p.style.left = Math.random()*100 + "vw";
+    p.style.animationDuration = (6 + Math.random()*6) + "s";
+    document.body.appendChild(p);
+}
+</script>
 
-<div class="container">
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#historia">Historia</a>
+    <a href="#galeria">Galería</a>
+    <a href="#info">Detalles</a>
+</nav>
 
-<header>
-  <h1>Melissa Aldaco y Carlos Morazán</h1>
-  <br>
-  <p><b>Un día, un instante, una historia que comienza…</b></p>
-  <br>
-  <p>Con el corazón lleno de ilusión les invitamos a ser parte de nuestra unión matrimonial donde cada detalle ha sido cuidadosamente elegido para celebrar con ustedes 
-    nuestra felicidad, nuestro amor y la nueva vida que iniciamos juntos. </p>
-</header>
+<!-- HERO -->
+<div class="hero" id="inicio">
 
-<div class="card">
-  <div class="divider"></div>
-  
-  <p>Para nosotros será un honor contar con su presencia en este día tan especial. Le 
-    invitamos a confirmar su asistencia llenando el siguiente formulario con su nombre.</p>
+    <div class="hero-slide" id="slide1"></div>
+    <div class="hero-slide" id="slide2"></div>
 
-  <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd_N6K35Vhep4uJ1UHHB9HjdXrJzP765nTKJwPcma829F7EhQ/viewform?usp=publish-editor" target="_blank">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <h1>Melissa Aldaco & Carlos Morazán</h1>
+        <br>
+        <p>Un día, un instante, una historia que comienza…</p>
+        <br>
+        <p>13 • 06 • 2026</p>
+    </div>
+</div>
+
+<!-- 🌟 HISTORIA CON ORNAMENTO CSS -->
+<section id="historia">
+
+    <div class="ornament-wrapper">
+        <div class="ornament">
+            <span></span>
+        </div>
+    </div>
+
+    <p class="story-text">
+        Con el corazón lleno de ilusión les invitamos a ser parte de nuestra unión matrimonial, donde cada detalle 
+        ha sido cuidadosamente elegido para celebrar con ustedes nuestra felicidad, 
+        nuestro amor y la nueva vida que iniciamos juntos.
+    </p>
+    <br>
+    <div class="ornament-wrapper bottom">
+    <div class="ornament">
+        <span></span>
+    </div>
+</div>
+
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria">
+    <h2>Galería</h2>
+
+    <div class="gallery-container">
+
+        <button class="arrow left" onclick="prev()">❮</button>
+
+        <div class="main-photo">
+            <img id="mainImage" src="foto1.jpeg">
+        </div>
+
+        <button class="arrow right" onclick="next()">❯</button>
+
+        <div class="thumbnails">
+            <img src="foto1.jpeg" onclick="goTo(0)">
+            <img src="foto2.jpeg" onclick="goTo(1)">
+            <img src="foto3.jpeg" onclick="goTo(2)">
+            <img src="foto4.jpeg" onclick="goTo(3)">
+            <img src="foto5.jpeg" onclick="goTo(4)">
+            <img src="foto6.jpeg" onclick="goTo(5)">
+            <img src="foto7.jpeg" onclick="goTo(6)">
+        </div>
+
+    </div>
+</section>
+
+<!-- INFO -->
+<section id="info">
+    <h2>Gentileza Solicitada</h2>
+
+    <div class="info">
+      <div class="card">
+            <h3>Confirmación</h3>
+            <br>
+            <p>Para nosotros será un honor contar con su presencia en este día tan especial. Le invitamos a 
+              confirmar su asistencia llenando el siguiente formulario con su nombre.</p>
+              <br>
+             <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd_N6K35Vhep4uJ1UHHB9HjdXrJzP765nTKJwPcma829F7EhQ/viewform?usp=publish-editor" target="_blank">
     Confirmar Asistencia
   </a>
-</div>
+        </div>
+
+        <div class="card">
+            <h3>Dress Code</h3>
+            <p>Formal, elegante. Evitar tonos blancos y beige.</p>
+        </div>
 
 <div class="card">
-  <div class="divider"></div>
-  <h2>Dress Code</h2>
-  <p>Formal, elegante. Evitar tonos blancos y beige.</p>
-</div>
+            <h3>Notas</h3>
+           
+            
+            <p>Para preservar la atmósfera soñada, la velada ha sido diseñada 
+              únicamente para adultos. Le solicitamos la no asistencia de menores de edad. </p>
+            <br>
+            <p>El verdadero tesoro de 
+              nuestra celebración será tenerlos con nosotros. No se requieren obsequios. </p>
+        </div></p>
+        </div>
 
-<div class="card">
-  <div class="divider"></div>
-  <h2>Gentileza Solicitada</h2>
-  <p>Para preservar la atmósfera soñada, la velada ha sido diseñada 
-    únicamente para adultos. Le solicitamos la no asistencia de menores de edad. </p>
-    <br>
-    <p>El verdadero tesoro de nuestra celebración será tenerlos con nosotros. No se requieren obsequios. </p>
-</div>
+        <div class="card">
+            <h3>¿Cómo llegar al evento?</h3>
+            <br>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.106591120013!2d-87.17537642638797!3d14.129828588432073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6fa3461c1d0663%3A0xc6901db94a3f8da5!2sEl%20Mirador!5e0!3m2!1ses-419!2shn!4v1775965654559!5m2!1ses-419!2shn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <br>
+        <p>El Hatillo km. 8.5, desvío hacia Restaurante
+          La Cumbre, Circuito El Bosque. Tegucigalpa, HN.
+        </p>
+          </div>
 
-<div class="card">
-  <div class="divider"></div>
-  <h2>¿Cómo llegar al evento?</h2>
-  <br>
+        
 
-  <div class="map-container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.106591120013!2d-87.17537642638801!3d14.129828588432073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6fa3461c1d0663%3A0xc6901db94a3f8da5!2sEl%20Mirador!5e0!3m2!1ses-419!2shn!4v1775857721892!5m2!1ses-419!2shn"></iframe>
-  
-  </div>
-<p>El Hatillo
-    Km. 8.5, desvío hacia Restaurante La Cumbre,
-    circuito El Bosque.
-    Tegucigalpa, HN.
-  </p>
-</div>
+        
 
-</div>
+        
+
+    </div>
+</section>
 
 <footer>
-  <p>¡Con cariño esperamos brindar juntos por nuestra felicidad!</p>
+    <p><b>¡Con cariño esperamos brindar juntos por nuestra felicidad!</b></p>
 </footer>
+
+<script>
+
+/* HERO */
+const imagesHero = [
+"https://www.interflora.es/blog/wp-content/uploads/2024/05/girasol-boda-scaled-1.jpg",
+"https://st5.depositphotos.com/37489656/75594/i/450/depositphotos_755948058-stock-photo-newly-wed-couples-hands-wedding.jpg",
+"aro.jpeg",
+"aro2.jpeg"
+];
+
+let i = 0;
+const s1 = document.getElementById("slide1");
+const s2 = document.getElementById("slide2");
+
+function changeHero(){
+    let next = imagesHero[i];
+
+    s2.style.backgroundImage = `url(${next})`;
+    s2.style.opacity = 1;
+
+    setTimeout(()=>{
+        s1.style.backgroundImage = `url(${next})`;
+        s2.style.opacity = 0;
+    },1000);
+
+    i = (i + 1) % imagesHero.length;
+}
+
+s1.style.backgroundImage = imagesHero[0];
+setInterval(changeHero, 4000);
+
+/* GALERÍA */
+let index = 0;
+const images = ["foto1.jpeg","foto2.jpeg","foto3.jpeg","foto4.jpeg","foto5.jpeg","foto6.jpeg","foto7.jpeg"];
+const main = document.getElementById("mainImage");
+
+function show(){
+    main.src = images[index];
+}
+
+function next(){
+    index = (index + 1) % images.length;
+    show();
+}
+
+function prev(){
+    index = (index - 1 + images.length) % images.length;
+    show();
+}
+
+function goTo(i){
+    index = i;
+    show();
+}
+
+</script>
 
 </body>
 </html>
