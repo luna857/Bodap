@@ -3,57 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Boda Morazán & Aldaco</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap" rel="stylesheet">
+<title>Boda Morazán Aldaco</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* 🌿 FONDO ELEGANTE */
-body{
+*{
     margin:0;
-    font-family:'Playfair Display', serif;
-    color:#2b2b2b;
-    background: radial-gradient(circle at top, #fffdf8, #f3efe6);
-    overflow-x:hidden;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* ✨ PARTÍCULAS DORADAS */
-.particle{
-    position:fixed;
-    width:6px;
-    height:6px;
-    background:rgba(176,141,87,0.6);
-    border-radius:50%;
-    pointer-events:none;
-    animation:floatParticles 10s linear infinite;
-    box-shadow:0 0 10px rgba(176,141,87,0.4);
-    z-index:1;
-}
-
-@keyframes floatParticles{
-    0%{ transform:translateY(100vh) translateX(0); opacity:0; }
-    20%{ opacity:0.6; }
-    100%{ transform:translateY(-10vh) translateX(40px); opacity:0; }
-}
-
-/* NAV */
-nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    background:rgba(255,255,255,0.85);
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    padding:15px;
-    z-index:1000;
-    box-shadow:0 2px 10px rgba(0,0,0,0.05);
-}
-
-nav a{
-    text-decoration:none;
-    color:#b08d57;
+body{
+    font-family:'Noto Serif', serif;
+    color:#333;
 }
 
 /* HERO */
@@ -64,531 +31,375 @@ nav a{
     display:flex;
     align-items:center;
     justify-content:center;
-    text-align:center;
-    color:white;
 }
 
-.hero-slide{
+.hero-slider{
     position:absolute;
     width:100%;
     height:100%;
-    background-size:cover;
-    background-position:center;
-    transition:opacity 1.5s ease-in-out;
 }
 
-.hero-overlay{
+.hero-slider img{
     position:absolute;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,0.45);
+    object-fit:cover;
+    opacity:0;
+    transition:opacity 1s ease-in-out;
+}
+
+.hero-slider img.active{
+    opacity:1;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.4);
+    top:0;
+    left:0;
     z-index:1;
 }
 
 .hero-content{
     position:relative;
     z-index:2;
+    color:rgb(234, 234, 225);
+    text-align:center;
 }
 
-.hero-content h1{
-    font-size:70px;
-    margin:0;
+.hero h1{
+    font-family:'Playfair Display', serif;
+    font-size:60px;
+    letter-spacing:3px;
 }
 
-.hero-content p{
-    font-size:22px;
+.hero p{
+    margin:20px 0;
+    font-size:18px;
 }
 
 /* SECCIONES */
-section{
+.section{
     padding:100px 20px;
-    max-width:1000px;
-    margin:auto;
     text-align:center;
-    position:relative;
-    z-index:2;
 }
 
-h2{
-    color:#b08d57;
-    font-size:40px;
+.light{
+    background:rgb(243, 243, 226);
 }
 
-/* 🌟 ORNAMENTO CSS PREMIUM */
-.ornament-wrapper{
+/* HISTORIA */
+.row{
     display:flex;
+    flex-wrap:wrap;
+    gap:60px;
     align-items:center;
     justify-content:center;
-    gap:25px;
-    margin-bottom:30px;
 }
 
-/* líneas doradas laterales */
-.ornament-wrapper::before,
-.ornament-wrapper::after{
-    content:"";
-    flex:1;
-    height:1px;
-    background:linear-gradient(to right, transparent, #b08d57, transparent);
+.col{
+    flex:1 1 400px;
 }
 
-/* centro ornamental */
-.ornament{
-    position:relative;
-    width:120px;
-    height:60px;
-}
-
-/* hojas izquierda */
-.ornament::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:10px;
-    width:50px;
-    height:40px;
-    border-radius:0 60px 0 60px;
-    border:2px solid #b08d57;
-    transform:rotate(-25deg);
-    opacity:0.8;
-}
-
-/* hojas derecha */
-.ornament::after{
-    content:"";
-    position:absolute;
-    right:0;
-    top:10px;
-    width:50px;
-    height:40px;
-    border-radius:60px 0 60px 0;
-    border:2px solid #b08d57;
-    transform:rotate(25deg);
-    opacity:0.8;
-}
-
-/* centro pequeño dorado */
-.ornament span{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    width:10px;
-    height:10px;
-    background:#b08d57;
-    border-radius:50%;
-    box-shadow:0 0 10px rgba(176,141,87,0.5);
-}
-
-/* TEXTO */
-.story-text{
-    max-width:750px;
-    font-size:20px;
-    line-height:1.8;
-    margin:auto;
-}
-
-/* TARJETAS */
-.info{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-    margin-top:40px;
-}
-
-.card{
-    background:rgba(255,255,255,0.92);
+.col img{
+    width:100%;
     border-radius:15px;
-    padding:25px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-    border-left:5px solid #b08d57;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+.col p{
+    font-size:18px;
+    line-height:1.8;
+    text-align:left;
+    max-width:500px;
+    margin:auto;
 }
 
 /* GALERÍA */
 .gallery-container{
-    max-width:850px;
-    margin:auto;
     position:relative;
-}
-
-.main-photo img{
-    width:100%;
-    height:450px;
-    object-fit:cover;
+    max-width:800px;
+    margin:auto;
+    overflow:hidden;
     border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
+.gallery-slider{
+    display:flex;
+    width:100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.gallery-slider img{
+    width:100%;
+    min-width:100%;
+    height:400px;
+    object-fit: contain;
+    background:#f6f0e6;
+    padding:10px;
+    display:block;
+}
+
+/* FLECHAS */
 .arrow{
     position:absolute;
-    top:40%;
+    top:50%;
     transform:translateY(-50%);
-    background:#b08d57;
-    color:white;
-    border:none;
-    font-size:24px;
-    padding:10px 15px;
+    font-size:28px;
+    color:rgb(235, 213, 148);
+    background:rgba(0,0,0,0.4);
+    padding:10px;
     cursor:pointer;
     border-radius:50%;
 }
 
-.left{ left:10px; }
-.right{ right:10px; }
+.left{left:10px;}
+.right{right:10px;}
 
-/* THUMBNAILS */
-.thumbnails{
+/* BOTÓN MÚSICA */
+.music-btn{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#222;
+    color:white;
+    cursor:pointer;
+}
+
+/* 💍 TARJETAS (NUEVO BLOQUE) */
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+    justify-content:center;
+    margin-top:40px;
+}
+
+.card{
+    width:260px;
+    background:rgba(255,255,255,0.75);
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+}
+
+.card h3{
+    font-family:'Playfair Display', serif;
+    margin-bottom:10px;
+}
+
+/* 💒 COUNTDOWN ELEGANTE */
+.countdown-wrapper{
+    margin-top:50px;
+}
+
+.countdown-title{
+    font-family:'Playfair Display', serif;
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.countdown{
     display:flex;
     justify-content:center;
-    gap:10px;
-    margin-top:15px;
-    flex-wrap:wrap;
+    gap:25px;
+    font-size:20px;
+    font-weight:bold;
 }
 
-.thumbnails img{
-    width:80px;
-    height:60px;
-    object-fit:cover;
-    border-radius:8px;
-    cursor:pointer;
-    opacity:0.6;
-}
-
-.thumbnails img:hover{
-    opacity:1;
-}
-
-/* MAPA */
-.map{
-    width:100%;
-    height:300px;
-    border:0;
+.countdown div{
+    background:rgba(255,255,255,0.7);
+    padding:20px;
     border-radius:12px;
+    min-width:90px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
 
-/* FORM */
-iframe.form{
-    width:100%;
-    height:500px;
-    border:none;
-    border-radius:12px;
+/* VINTAGE */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+
+    background-image: url("pt.jpg");
+    opacity: 0.35;
+    mix-blend-mode: multiply;
 }
 
-/* FOOTER */
-footer{
-    background:#1f1f1f;
-    color:white;
-    text-align:center;
-    padding:25px;
-    margin-top:60px;
-}
-/* 📱 RESPONSIVE (CELULAR + TABLET) */
-@media (max-width: 1024px){
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
 
-    /* HERO */
-    .hero-content h1{
-        font-size:50px;
-    }
-
-    .hero-content p{
-        font-size:18px;
-        padding:0 10px;
-    }
-
-    /* TÍTULOS */
-    h2{
-        font-size:32px;
-    }
-
-    /* TEXTO HISTORIA */
-    .story-text{
-        font-size:18px;
-        padding:0 15px;
-    }
-
-    /* ORNAMENTO */
-    .ornament{
-        width:90px;
-        height:50px;
-    }
-
-    /* TARJETAS */
-    .card{
-        padding:18px;
-    }
-
-    /* GALERÍA */
-    .main-photo img{
-        height:300px;
-    }
-
-    .arrow{
-        font-size:18px;
-        padding:8px 12px;
-    }
-
-    .thumbnails img{
-        width:65px;
-        height:50px;
-    }
-
-    /* MAPA */
-    iframe{
-        width:100% !important;
-    }
-
-    /* FORMULARIO */
-    iframe.form{
-        height:420px;
-    }
+    background: radial-gradient(
+        circle at center,
+        rgba(255,255,255,0) 40%,
+        rgba(0,0,0,0.25) 100%
+    );
 }
 
-/* 📱 CELULAR PEQUEÑO */
-@media (max-width: 600px){
-
-    nav{
-        flex-wrap:wrap;
-        gap:10px;
-        font-size:14px;
-    }
-
-    .hero-content h1{
-        font-size:34px;
-    }
-
-    .hero-content p{
-        font-size:15px;
-    }
-
-    .ornament-wrapper{
-        gap:10px;
-    }
-
-    .ornament{
-        width:70px;
-        height:40px;
-    }
-
-    .main-photo img{
-        height:220px;
-    }
-
-    .thumbnails img{
-        width:55px;
-        height:45px;
-    }
-
-    .arrow{
-        top:45%;
-    }
-
-    .story-text{
-        font-size:16px;
-    }
-
-    section{
-        padding:70px 15px;
-    }
+body > * {
+    position: relative;
+    z-index: 1;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ✨ PARTÍCULAS DORADAS -->
-<script>
-for(let i=0;i<25;i++){
-    let p = document.createElement("div");
-    p.className = "particle";
-    p.style.left = Math.random()*100 + "vw";
-    p.style.animationDuration = (6 + Math.random()*6) + "s";
-    document.body.appendChild(p);
-}
-</script>
-
-<nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#historia">Historia</a>
-    <a href="#galeria">Galería</a>
-    <a href="#info">Detalles</a>
-</nav>
-
 <!-- HERO -->
-<div class="hero" id="inicio">
-
-    <div class="hero-slide" id="slide1"></div>
-    <div class="hero-slide" id="slide2"></div>
-
-    <div class="hero-overlay"></div>
+<section class="hero">
+    <div class="hero-slider" id="heroSlider">
+        <img src="aro.jpeg" class="active">
+        <img src="aro2.jpeg">
+        <img src="aro3.jpeg">
+    </div>
 
     <div class="hero-content">
         <h1>Melissa Aldaco & Carlos Morazán</h1>
-        <br>
-        <p>Un día, un instante, una historia que comienza…</p>
-        <br>
-        <p>13 • 06 • 2026</p>
+        <p>13 · 06 · 26</p>
     </div>
-</div>
-
-<!-- 🌟 HISTORIA CON ORNAMENTO CSS -->
-<section id="historia">
-
-    <div class="ornament-wrapper">
-        <div class="ornament">
-            <span></span>
+</section>
+<br>
+<!-- DIVISOR -->
+<section class="section">
+    <hr>
+    <p><b>Un día, un instante, una historia que comienza…</b></p>
+    <hr>
+</section>
+<!-- HISTORIA -->
+<section class="section light">
+    <div class="row">
+        <div class="col">
+            <img src="foto1.jpeg">
+        </div>
+        <div class="col">
+            <p>
+                Con el corazón lleno de ilusión les invitamos a ser parte de nuestra unión matrimonial.
+            </p>
         </div>
     </div>
-
-    <p class="story-text">
-        Con el corazón lleno de ilusión les invitamos a ser parte de nuestra unión matrimonial, donde cada detalle 
-        ha sido cuidadosamente elegido para celebrar con ustedes nuestra felicidad, 
-        nuestro amor y la nueva vida que iniciamos juntos.
-    </p>
-    <br>
-    <div class="ornament-wrapper bottom">
-    <div class="ornament">
-        <span></span>
-    </div>
-</div>
-
 </section>
 
 <!-- GALERÍA -->
-<section id="galeria">
-    <h2>Galería</h2>
+<section class="section">
+    <h2 style="font-family:'Playfair Display'; margin-bottom:30px;">
+        Nuestra Historia
+    </h2>
 
     <div class="gallery-container">
-
-        <button class="arrow left" onclick="prev()">❮</button>
-
-        <div class="main-photo">
-            <img id="mainImage" src="foto1.jpeg">
+        <div class="gallery-slider" id="slider">
+            <img src="ft1.jpeg">
+            <img src="ft2.jpeg">
+            <img src="ft3.jpeg">
+            <img src="ft4.jpeg">
+            <img src="ft5.jpeg">
         </div>
 
-        <button class="arrow right" onclick="next()">❯</button>
-
-        <div class="thumbnails">
-            <img src="foto1.jpeg" onclick="goTo(0)">
-            <img src="foto2.jpeg" onclick="goTo(1)">
-            <img src="foto3.jpeg" onclick="goTo(2)">
-            <img src="foto4.jpeg" onclick="goTo(3)">
-            <img src="foto5.jpeg" onclick="goTo(4)">
-            <img src="foto6.jpeg" onclick="goTo(5)">
-            <img src="foto7.jpeg" onclick="goTo(6)">
-        </div>
-
+        <div class="arrow left" onclick="moveSlide(-1)">❮</div>
+        <div class="arrow right" onclick="moveSlide(1)">❯</div>
     </div>
-</section>
 
-<!-- INFO -->
-<section id="info">
-    <h2>Gentileza Solicitada</h2>
+    <button class="music-btn" onclick="toggleMusic()">▶ Play música</button>
 
-    <div class="info">
-      <div class="card">
-            <h3>Confirmación</h3>
-            <br>
-            <p>Para nosotros será un honor contar con su presencia en este día tan especial. Le invitamos a 
-              confirmar su asistencia llenando el siguiente formulario con su nombre.</p>
-              <br>
-             <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd_N6K35Vhep4uJ1UHHB9HjdXrJzP765nTKJwPcma829F7EhQ/viewform?usp=publish-editor" target="_blank">
-    Confirmar Asistencia
-  </a>
-        </div>
+    <audio id="audio">
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
 
+    <!-- 💒 TARJETAS DE NOTAS -->
+    <div class="cards">
         <div class="card">
             <h3>Dress Code</h3>
-            <p>Formal, elegante. Evitar tonos blancos y beige.</p>
-        </div>
-
-<div class="card">
-            <h3>Notas</h3>
-           
-            
-            <p>Para preservar la atmósfera soñada, la velada ha sido diseñada 
-              únicamente para adultos. Le solicitamos la no asistencia de menores de edad. </p>
-            <br>
-            <p>El verdadero tesoro de 
-              nuestra celebración será tenerlos con nosotros. No se requieren obsequios. </p>
-        </div></p>
+            <p>Formal elegante</p>
         </div>
 
         <div class="card">
-            <h3>¿Cómo llegar al evento?</h3>
-            <br>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.106591120013!2d-87.17537642638797!3d14.129828588432073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6fa3461c1d0663%3A0xc6901db94a3f8da5!2sEl%20Mirador!5e0!3m2!1ses-419!2shn!4v1775965654559!5m2!1ses-419!2shn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <br>
-        <p>El Hatillo km. 8.5, desvío hacia Restaurante
-          La Cumbre, Circuito El Bosque. Tegucigalpa, HN.
-        </p>
-          </div>
+            <h3>Ambiente</h3>
+            <p>Solo adultos</p>
+        </div>
 
-        
-
-        
-
-        
-
+        <div class="card">
+            <h3>Regalos</h3>
+            <p>Tu presencia es suficiente</p>
+        </div>
     </div>
 </section>
 
-<footer>
-    <p><b>¡Con cariño esperamos brindar juntos por nuestra felicidad!</b></p>
-</footer>
+<!-- ⏳ COUNTDOWN ELEGANTE -->
+<section class="section light">
+    <div class="countdown-wrapper">
+        <div class="countdown-title">Faltan para el gran día</div>
+
+        <div class="countdown">
+            <div><span id="days">0</span><br>Días</div>
+            <div><span id="hours">0</span><br>Horas</div>
+            <div><span id="minutes">0</span><br>Min</div>
+            <div><span id="seconds">0</span><br>Seg</div>
+        </div>
+    </div>
+</section>
 
 <script>
 
-/* HERO */
-const imagesHero = [
-"https://www.interflora.es/blog/wp-content/uploads/2024/05/girasol-boda-scaled-1.jpg",
-"https://st5.depositphotos.com/37489656/75594/i/450/depositphotos_755948058-stock-photo-newly-wed-couples-hands-wedding.jpg",
-"aro.jpeg",
-"aro2.jpeg"
-];
-
-let i = 0;
-const s1 = document.getElementById("slide1");
-const s2 = document.getElementById("slide2");
-
-function changeHero(){
-    let next = imagesHero[i];
-
-    s2.style.backgroundImage = `url(${next})`;
-    s2.style.opacity = 1;
-
-    setTimeout(()=>{
-        s1.style.backgroundImage = `url(${next})`;
-        s2.style.opacity = 0;
-    },1000);
-
-    i = (i + 1) % imagesHero.length;
-}
-
-s1.style.backgroundImage = imagesHero[0];
-setInterval(changeHero, 4000);
-
 /* GALERÍA */
 let index = 0;
-const images = ["foto1.jpeg","foto2.jpeg","foto3.jpeg","foto4.jpeg","foto5.jpeg","foto6.jpeg","foto7.jpeg"];
-const main = document.getElementById("mainImage");
 
-function show(){
-    main.src = images[index];
+function moveSlide(step){
+    const slider = document.getElementById("slider");
+    const total = slider.children.length;
+
+    index += step;
+
+    if(index < 0) index = total - 1;
+    if(index >= total) index = 0;
+
+    slider.style.transform = `translateX(-${index * 100}%)`;
 }
 
-function next(){
-    index = (index + 1) % images.length;
-    show();
+/* MÚSICA */
+let audio = document.getElementById("audio");
+let playing = false;
+
+function toggleMusic(){
+    if(!playing){
+        audio.play();
+        playing = true;
+        document.querySelector(".music-btn").innerText = "⏸ Pausar música";
+    } else {
+        audio.pause();
+        playing = false;
+        document.querySelector(".music-btn").innerText = "▶ Play música";
+    }
 }
 
-function prev(){
-    index = (index - 1 + images.length) % images.length;
-    show();
-}
+/* COUNTDOWN */
+const weddingDate = new Date("2026-06-13T00:00:00").getTime();
 
-function goTo(i){
-    index = i;
-    show();
-}
+setInterval(()=>{
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+
+    document.getElementById("days").innerText = Math.floor(diff / (1000*60*60*24));
+    document.getElementById("hours").innerText = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    document.getElementById("minutes").innerText = Math.floor((diff % (1000*60*60)) / (1000*60));
+    document.getElementById("seconds").innerText = Math.floor((diff % (1000*60)) / 1000);
+
+}, 1000);
 
 </script>
 
