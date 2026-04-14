@@ -257,6 +257,83 @@ body > * {
     position: relative;
     z-index: 1;
 }
+/* ========================= */
+/* 📱 RESPONSIVE (AGREGADO) */
+/* ========================= */
+
+@media (max-width: 1024px){
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .row{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .col p{
+        text-align:center;
+    }
+
+    .gallery-slider img{
+        height:320px;
+    }
+
+    .cards{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .card{
+        width:90%;
+        max-width:320px;
+    }
+
+    .countdown{
+        flex-wrap:wrap;
+        gap:15px;
+    }
+}
+
+@media (max-width: 600px){
+
+    .hero h1{
+        font-size:32px;
+        letter-spacing:2px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .section{
+        padding:60px 15px;
+    }
+
+    .gallery-slider img{
+        height:250px;
+    }
+
+    .arrow{
+        font-size:20px;
+        padding:8px;
+    }
+
+    .countdown div{
+        min-width:70px;
+        padding:15px;
+        font-size:14px;
+    }
+
+    .music-btn{
+        width:90%;
+    }
+}
 </style>
 </head>
 
@@ -266,22 +343,24 @@ body > * {
 <section class="hero">
     <div class="hero-slider" id="heroSlider">
         <img src="aro.jpeg" class="active">
-        <img src="aro2.jpeg">
-        <img src="aro3.jpeg">
+       
     </div>
 
     <div class="hero-content">
         <h1>Melissa Aldaco & Carlos Morazán</h1>
+        <br>
         <p>13 · 06 · 26</p>
+        <br>
+        <p><b>Un día, un instante, una historia que comienza…</b></p>
     </div>
 </section>
 <br>
-<!-- DIVISOR -->
-<section class="section">
+<!-- DIVISOR <section class="section">
     <hr>
-    <p><b>Un día, un instante, una historia que comienza…</b></p>
+    
     <hr>
-</section>
+</section>-->
+
 <!-- HISTORIA -->
 <section class="section light">
     <div class="row">
@@ -290,7 +369,9 @@ body > * {
         </div>
         <div class="col">
             <p>
-                Con el corazón lleno de ilusión les invitamos a ser parte de nuestra unión matrimonial.
+            Con el corazón lleno de ilusión les invitamos a ser parte de 
+            nuestra unión matrimonial, donde cada detalle ha sido cuidadosamente elegido para 
+            celebrar con ustedes nuestra felicidad, nuestro amor y la nueva vida que iniciamos juntos. 
             </p>
         </div>
     </div>
@@ -325,21 +406,69 @@ body > * {
     <div class="cards">
         <div class="card">
             <h3>Dress Code</h3>
-            <p>Formal elegante</p>
+            <p>Formal, elegante. Evitar tonos blancos y beige.</p>
         </div>
 
         <div class="card">
             <h3>Ambiente</h3>
-            <p>Solo adultos</p>
+            <p>Para preservar la atmósfera soñada, la velada ha sido diseñada 
+                únicamente para adultos. Les solicitamos la no asistencia de menores de edad. </p>
         </div>
 
         <div class="card">
-            <h3>Regalos</h3>
-            <p>Tu presencia es suficiente</p>
+            <h3>Obsequios</h3>
+            <p>El verdadero tesoro de nuestra celebración 
+                será tenerlos con nosotros. No se requieren obsequios. </p>
         </div>
     </div>
-</section>
+    
 
+    <div class="cards">
+        <div class="card" style="width:100%; max-width:700px;">
+            <h3>¿Cómo llegar al evento?</h3>
+            <br>
+
+            <div style="width:100%; height:300px; margin-top:15px; border-radius:15px; overflow:hidden;">
+                <iframe
+                    src="https://www.google.com/maps?q=El%20Mirador%20Tegucigalpa&output=embed"
+                    width="100%"
+                    height="100%"
+                    style="border:0;">
+                </iframe>
+            </div>
+            <br>
+            <p>El Hatillo km. 8.5, desvío hacia Restaurante 
+                La Cumbre, Circuito El Bosque. Tegucigalpa, HN</p>
+        </div>
+    </div>
+    <section class="section">
+    
+
+    <div class="cards">
+        <div class="card" style="width:100%; max-width:700px;">
+
+            
+            <h3>RSVP</h3>
+            <br>
+            <p>Para nosotros será un honor contar con su presencia en este día tan 
+                especial. Les invitamos a confirmar su asistencia llenando 
+                el siguiente formulario con su nombre.</p>
+
+            <div class="cards">
+        <div class="card" style="width:100%; max-width:700px;">
+
+            
+            <p>Confirma tu asistencia dando clic en el botón:</p>
+
+            <button class="music-btn" style="width:100%; margin-top:20px;"
+                onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd_N6K35Vhep4uJ1UHHB9HjdXrJzP765nTKJwPcma829F7EhQ/viewform?usp=header', '_blank')">
+                💍
+            </button>
+
+        </div>
+    </div>
+    </div>
+</section>
 <!-- ⏳ COUNTDOWN ELEGANTE -->
 <section class="section light">
     <div class="countdown-wrapper">
@@ -353,6 +482,15 @@ body > * {
         </div>
     </div>
 </section>
+</section>
+<br>
+
+</section>
+<br>
+
+<br>
+<br>
+<p><br>¡Con cariño esperamos brindar juntos por nuestra felicidad!</p>
 
 <script>
 
