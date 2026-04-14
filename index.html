@@ -301,6 +301,7 @@ body > *{
 </head>
 
 <body>
+    
 
 <!-- HERO -->
 <section class="hero">
@@ -352,7 +353,9 @@ Nuestra Historia
     <div class="arrow right" onclick="moveSlide(1)">❯</div>
 </div>
 
-<button class="music-btn" onclick="toggleMusic()">Escucha nuestra canción</button>
+<button class="music-btn" onclick="startMusic()" id="musicBtn">
+🎵 Escuchar nuestra canción
+</button>
 
 <audio id="audio" loop playsinline preload="auto">
     <source src="musica.mp3" type="audio/mpeg">
@@ -480,43 +483,48 @@ let index = 0;
 function moveSlide(step){
     const slider = document.getElementById("slider");
     const total = slider.children.length;
+
     index += step;
+
     if(index < 0) index = total - 1;
     if(index >= total) index = 0;
+
     slider.style.transform = `translateX(-${index * 100}%)`;
 }
 
-/* MÚSICA FIX */
-let audio = document.getElementById("audio");
+/* AUDIO FIX DEFINITIVO MÓVIL */
+const audio = document.getElementById("audio");
 let playing = false;
 
-function toggleMusic(){
-    audio.muted = false;
+function startMusic(){
     audio.volume = 1;
 
     const playPromise = audio.play();
 
     if(playPromise !== undefined){
-        playPromise.then(()=>{
+        playPromise.then(() => {
             playing = true;
-            document.querySelector(".music-btn").innerText = "⏸ Pausar música";
-        }).catch(()=>{
-            // fallback para móviles
-            document.querySelector(".music-btn").innerText = "▶ Toca de nuevo para activar";
+            document.getElementById("musicBtn").innerText = "⏸ Pausar música";
+        }).catch(() => {
+            alert("🔊 Toca nuevamente el botón para activar el audio en tu celular");
         });
     }
 }
-document.addEventListener("click", function initAudio(){
-    audio.play().then(()=>{
+
+/* pausa segura */
+document.getElementById("musicBtn").addEventListener("click", function(){
+    if(playing){
         audio.pause();
-    }).catch(()=>{});
-    document.removeEventListener("click", initAudio);
+        playing = false;
+        this.innerText = "🎵 Escuchar nuestra canción";
+    }
 });
 
 /* COUNTDOWN */
 const weddingDate = new Date("2026-06-13T00:00:00").getTime();
 
 setInterval(()=>{
+
     const now = new Date().getTime();
     const diff = weddingDate - now;
 
@@ -524,8 +532,8 @@ setInterval(()=>{
     document.getElementById("hours").innerText = Math.floor((diff % 86400000)/3600000);
     document.getElementById("minutes").innerText = Math.floor((diff % 3600000)/60000);
     document.getElementById("seconds").innerText = Math.floor((diff % 60000)/1000);
-},1000);
 
+},1000);
 </script>
 
 </body>
