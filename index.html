@@ -170,7 +170,7 @@ body{
     cursor:pointer;
 }
 
-/* 💍 TARJETAS (NUEVO BLOQUE) */
+/* TARJETAS */
 .cards{
     display:flex;
     flex-wrap:wrap;
@@ -193,7 +193,7 @@ body{
     margin-bottom:10px;
 }
 
-/* 💒 COUNTDOWN ELEGANTE */
+/* COUNTDOWN */
 .countdown-wrapper{
     margin-top:50px;
 }
@@ -220,7 +220,7 @@ body{
     box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
 
-/* VINTAGE */
+/* VINTAGE (FIX MÓVIL) */
 body::before {
     content: "";
     position: fixed;
@@ -230,8 +230,8 @@ body::before {
     height: 100%;
     pointer-events: none;
     z-index: 0;
-
     background-image: url("pt.jpg");
+    background-size: cover;
     opacity: 0.35;
     mix-blend-mode: multiply;
 }
@@ -245,94 +245,38 @@ body::after {
     height: 100%;
     pointer-events: none;
     z-index: 0;
-
-    background: radial-gradient(
-        circle at center,
+    background: radial-gradient(circle at center,
         rgba(255,255,255,0) 40%,
-        rgba(0,0,0,0.25) 100%
-    );
+        rgba(0,0,0,0.25) 100%);
 }
 
-body > * {
-    position: relative;
-    z-index: 1;
+body > *{
+    position:relative;
+    z-index:1;
 }
-/* ========================= */
-/* 📱 RESPONSIVE (AGREGADO) */
-/* ========================= */
 
-@media (max-width: 1024px){
-
-    .hero h1{
-        font-size:45px;
+/* FIX MÓVIL VINTAGE */
+@media (max-width:768px){
+    body::before{
+        opacity:0.25;
+        background-attachment: scroll;
     }
-
-    .hero p{
-        font-size:16px;
-    }
-
-    .row{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .col p{
-        text-align:center;
-    }
-
-    .gallery-slider img{
-        height:320px;
-    }
-
-    .cards{
-        flex-direction:column;
-        align-items:center;
-    }
-
-    .card{
-        width:90%;
-        max-width:320px;
-    }
-
-    .countdown{
-        flex-wrap:wrap;
-        gap:15px;
+    body::after{
+        opacity:0.15;
     }
 }
 
-@media (max-width: 600px){
+/* RESPONSIVE */
+@media (max-width:1024px){
+    .hero h1{font-size:45px;}
+    .row{flex-direction:column;}
+    .col p{text-align:center;}
+}
 
-    .hero h1{
-        font-size:32px;
-        letter-spacing:2px;
-    }
-
-    .hero p{
-        font-size:14px;
-    }
-
-    .section{
-        padding:60px 15px;
-    }
-
-    .gallery-slider img{
-        height:250px;
-    }
-
-    .arrow{
-        font-size:20px;
-        padding:8px;
-    }
-
-    .countdown div{
-        min-width:70px;
-        padding:15px;
-        font-size:14px;
-    }
-
-    .music-btn{
-        width:90%;
-    }
+@media (max-width:600px){
+    .hero h1{font-size:32px;}
+    .section{padding:60px 15px;}
+    .gallery-slider img{height:250px;}
 }
 </style>
 </head>
@@ -343,23 +287,15 @@ body > * {
 <section class="hero">
     <div class="hero-slider" id="heroSlider">
         <img src="aro.jpeg" class="active">
-       
     </div>
 
     <div class="hero-content">
         <h1>Melissa Aldaco & Carlos Morazán</h1>
-        <br>
         <p>13 · 06 · 26</p>
-        <br>
         <p><b>Un día, un instante, una historia que comienza…</b></p>
     </div>
 </section>
 <br>
-<!-- DIVISOR <section class="section">
-    <hr>
-    
-    <hr>
-</section>-->
 
 <!-- HISTORIA -->
 <section class="section light">
@@ -371,7 +307,7 @@ body > * {
             <p>
             Con el corazón lleno de ilusión les invitamos a ser parte de 
             nuestra unión matrimonial, donde cada detalle ha sido cuidadosamente elegido para 
-            celebrar con ustedes nuestra felicidad, nuestro amor y la nueva vida que iniciamos juntos. 
+            celebrar con ustedes nuestra felicidad.
             </p>
         </div>
     </div>
@@ -379,30 +315,68 @@ body > * {
 
 <!-- GALERÍA -->
 <section class="section">
-    <h2 style="font-family:'Playfair Display'; margin-bottom:30px;">
-        Nuestra Historia
-    </h2>
 
-    <div class="gallery-container">
-        <div class="gallery-slider" id="slider">
-            <img src="ft1.jpeg">
-            <img src="ft2.jpeg">
-            <img src="ft3.jpeg">
-            <img src="ft4.jpeg">
-            <img src="ft5.jpeg">
-        </div>
+<h2 style="font-family:'Playfair Display'; margin-bottom:30px;">
+Nuestra Historia
+</h2>
 
-        <div class="arrow left" onclick="moveSlide(-1)">❮</div>
-        <div class="arrow right" onclick="moveSlide(1)">❯</div>
+<div class="gallery-container">
+    <div class="gallery-slider" id="slider">
+        <img src="ft1.jpeg">
+        <img src="ft2.jpeg">
+        <img src="ft3.jpeg">
+        <img src="ft4.jpeg">
+        <img src="ft5.jpeg">
     </div>
 
-    <button class="music-btn" onclick="toggleMusic()">▶ Play música</button>
+    <div class="arrow left" onclick="moveSlide(-1)">❮</div>
+    <div class="arrow right" onclick="moveSlide(1)">❯</div>
+</div>
 
-    <audio id="audio">
-        <source src="musica.mp3" type="audio/mpeg">
-    </audio>
+<button class="music-btn" onclick="toggleMusic()">▶ Play música</button>
 
-    <!-- 💒 TARJETAS DE NOTAS -->
+<audio id="audio" loop playsinline>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<!-- RSVP -->
+<div class="cards">
+    <div class="card" style="width:100%; max-width:700px;">
+        <h3>RSVP</h3>
+        <p>Confirma tu asistencia dando clic en el botón:</p>
+
+        <button class="music-btn"
+            style="width:100%; margin-top:20px;"
+            onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd_N6K35Vhep4uJ1UHHB9HjdXrJzP765nTKJwPcma829F7EhQ/viewform?usp=header','_blank')">
+            💍 Confirmar asistencia
+        </button>
+    </div>
+</div>
+<!-- 💒 TARJETAS DE NOTAS <div class="cards">
+        <div class="card" style="width:100%; max-width:700px;">
+
+            
+            <h3>RSVP</h3>
+            <br>
+            <p>Para nosotros será un honor contar con su presencia en este día tan 
+                especial. Les invitamos a confirmar su asistencia llenando 
+                el siguiente formulario con su nombre.</p>
+
+            <div class="cards">
+        <div class="card" style="width:100%; max-width:700px;">
+
+            
+            <p>Confirma tu asistencia dando clic en el botón:</p>
+
+            <button class="music-btn" style="width:100%; margin-top:20px;"
+                onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd_N6K35Vhep4uJ1UHHB9HjdXrJzP765nTKJwPcma829F7EhQ/viewform?usp=header', '_blank')">
+                💍
+            </button>
+
+        </div>
+    </div>
+    </div>-->
+     
     <div class="cards">
         <div class="card">
             <h3>Dress Code</h3>
@@ -441,38 +415,26 @@ body > * {
                 La Cumbre, Circuito El Bosque. Tegucigalpa, HN</p>
         </div>
     </div>
-    <section class="section">
-    
 
-    <div class="cards">
-        <div class="card" style="width:100%; max-width:700px;">
+<!-- UBICACIÓN div class="cards">
+    <div class="card" style="width:100%; max-width:700px;">
+        <h3>¿Cómo llegar?</h3>
 
-            
-            <h3>RSVP</h3>
-            <br>
-            <p>Para nosotros será un honor contar con su presencia en este día tan 
-                especial. Les invitamos a confirmar su asistencia llenando 
-                el siguiente formulario con su nombre.</p>
+        <iframe
+            src="https://www.google.com/maps?q=El%20Mirador%20Tegucigalpa&output=embed"
+            width="100%" height="300"
+            style="border:0;border-radius:15px;">
+        </iframe>
 
-            <div class="cards">
-        <div class="card" style="width:100%; max-width:700px;">
-
-            
-            <p>Confirma tu asistencia dando clic en el botón:</p>
-
-            <button class="music-btn" style="width:100%; margin-top:20px;"
-                onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd_N6K35Vhep4uJ1UHHB9HjdXrJzP765nTKJwPcma829F7EhQ/viewform?usp=header', '_blank')">
-                💍
-            </button>
-
-        </div>
+        <p>El Hatillo km. 8.5, Tegucigalpa</p>
     </div>
-    </div>
-</section>
-<!-- ⏳ COUNTDOWN ELEGANTE -->
-<section class="section light">
-    <div class="countdown-wrapper">
-        <div class="countdown-title">Faltan para el gran día</div>
+</div>-->
+
+
+<!-- COUNTDOWN -->
+<div class="cards">
+    <div class="card" style="width:100%; max-width:700px;">
+        <h3 class="countdown-title">Faltan para el gran día</h3>
 
         <div class="countdown">
             <div><span id="days">0</span><br>Días</div>
@@ -481,48 +443,35 @@ body > * {
             <div><span id="seconds">0</span><br>Seg</div>
         </div>
     </div>
-</section>
-</section>
-<br>
-
-</section>
+</div>
 <br>
 
 <br>
-<br>
-<p><br>¡Con cariño esperamos brindar juntos por nuestra felicidad!</p>
+<p><h1>¡Con cariño esperamos brindar juntos por nuestra felicidad!</h1></p>
+</section>
 
 <script>
 
-/* GALERÍA */
 let index = 0;
 
 function moveSlide(step){
     const slider = document.getElementById("slider");
     const total = slider.children.length;
-
     index += step;
-
     if(index < 0) index = total - 1;
     if(index >= total) index = 0;
-
     slider.style.transform = `translateX(-${index * 100}%)`;
 }
 
-/* MÚSICA */
+/* MÚSICA FIX */
 let audio = document.getElementById("audio");
 let playing = false;
 
 function toggleMusic(){
-    if(!playing){
-        audio.play();
+    audio.play().then(()=>{
         playing = true;
         document.querySelector(".music-btn").innerText = "⏸ Pausar música";
-    } else {
-        audio.pause();
-        playing = false;
-        document.querySelector(".music-btn").innerText = "▶ Play música";
-    }
+    }).catch(()=>{});
 }
 
 /* COUNTDOWN */
@@ -532,12 +481,11 @@ setInterval(()=>{
     const now = new Date().getTime();
     const diff = weddingDate - now;
 
-    document.getElementById("days").innerText = Math.floor(diff / (1000*60*60*24));
-    document.getElementById("hours").innerText = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-    document.getElementById("minutes").innerText = Math.floor((diff % (1000*60*60)) / (1000*60));
-    document.getElementById("seconds").innerText = Math.floor((diff % (1000*60)) / 1000);
-
-}, 1000);
+    document.getElementById("days").innerText = Math.floor(diff / 86400000);
+    document.getElementById("hours").innerText = Math.floor((diff % 86400000)/3600000);
+    document.getElementById("minutes").innerText = Math.floor((diff % 3600000)/60000);
+    document.getElementById("seconds").innerText = Math.floor((diff % 60000)/1000);
+},1000);
 
 </script>
 
