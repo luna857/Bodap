@@ -278,6 +278,25 @@ body > *{
     .section{padding:60px 15px;}
     .gallery-slider img{height:250px;}
 }
+.countdown{
+    flex-wrap:wrap;
+}
+
+.countdown div{
+    flex: 1 1 70px;
+    text-align:center;
+}
+@media (max-width:600px){
+    .countdown{
+        gap:10px;
+    }
+
+    .countdown div{
+        min-width:60px;
+        padding:12px;
+        font-size:12px;
+    }
+}
 </style>
 </head>
 
@@ -335,9 +354,10 @@ Nuestra Historia
 
 <button class="music-btn" onclick="toggleMusic()">Escucha nuestra canción</button>
 
-<audio id="audio" loop playsinline>
+<audio id="audio" loop playsinline preload="auto">
     <source src="musica.mp3" type="audio/mpeg">
 </audio>
+
 
 <!-- RSVP -->
 <div class="cards">
@@ -471,11 +491,27 @@ let audio = document.getElementById("audio");
 let playing = false;
 
 function toggleMusic(){
-    audio.play().then(()=>{
-        playing = true;
-        document.querySelector(".music-btn").innerText = "⏸ Pausar música";
-    }).catch(()=>{});
+    audio.muted = false;
+    audio.volume = 1;
+
+    const playPromise = audio.play();
+
+    if(playPromise !== undefined){
+        playPromise.then(()=>{
+            playing = true;
+            document.querySelector(".music-btn").innerText = "⏸ Pausar música";
+        }).catch(()=>{
+            // fallback para móviles
+            document.querySelector(".music-btn").innerText = "▶ Toca de nuevo para activar";
+        });
+    }
 }
+document.addEventListener("click", function initAudio(){
+    audio.play().then(()=>{
+        audio.pause();
+    }).catch(()=>{});
+    document.removeEventListener("click", initAudio);
+});
 
 /* COUNTDOWN */
 const weddingDate = new Date("2026-06-13T00:00:00").getTime();
