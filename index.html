@@ -88,7 +88,9 @@ body{
 }
 
 .light{
-    background-image: "mv.jpg";
+    background-image: url("mr.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
 /* HISTORIA */
@@ -138,7 +140,7 @@ body{
     min-width:100%;
     height:400px;
     object-fit: contain;
-    background:black
+    
     padding:10px;
     display:block;
 }
@@ -230,7 +232,7 @@ body::before {
     height: 100%;
     pointer-events: none;
     z-index: 0;
-    background-image: url("mr.jpg");
+    background-image: url("mv.jpg");
     background-size: cover;
     opacity: 0.35;
     mix-blend-mode: multiply;
@@ -296,6 +298,26 @@ body > *{
         padding:12px;
         font-size:12px;
     }
+}
+.footer{
+    text-align:center;
+    padding:40px 20px;
+    background:black;
+    color:#555;
+    font-size:14px;
+    margin-top:50px;
+    border-top:1px solid rgba(0,0,0,0.05);
+}
+
+.footer p{
+    margin:5px 0;
+}
+
+.footer-msg{
+    font-family:'Playfair Display', serif;
+    font-size:16px;
+    margin-top:10px;
+    color:rgb(234, 234, 225);
 }
 </style>
 </head>
@@ -423,12 +445,9 @@ Nuestra Historia
             <br>
 
             <div style="width:100%; height:300px; margin-top:15px; border-radius:15px; overflow:hidden;">
-                <iframe
-                    src="https://www.google.com/maps?q=El%20Mirador%20Tegucigalpa&output=embed"
-                    width="100%"
-                    height="100%"
-                    style="border:0;">
-                </iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.1066793202544!2d-87.17280149999999!3d14.1298234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6fa3461c1d0663%3A0xc6901db94a3f8da5!2sEl%20Mirador!5e0!3m2!1ses-419!2shn!4v1776134831405!5m2!1ses-419!2shn" 
+                width="600" height="450" style="border:0;" 
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <br>
             <p>El Hatillo km. 8.5, desvío hacia Restaurante 
@@ -458,7 +477,7 @@ Nuestra Historia
         <button class="music-btn"
             style="width:100%; margin-top:20px;"
             onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd_N6K35Vhep4uJ1UHHB9HjdXrJzP765nTKJwPcma829F7EhQ/viewform?usp=header','_blank')">
-            💍 Confirmar asistencia
+            💍 
         </button>
     </div>
 </div>
@@ -467,7 +486,8 @@ Nuestra Historia
 <!-- COUNTDOWN -->
 <div class="cards">
     <div class="card" style="width:100%; max-width:700px;">
-        <h3 class="countdown-title">Faltan para el gran día</h3>
+        <h3 class="countdown-title"><b>Faltan para el gran día</b></h3>
+        <br>
 
         <div class="countdown">
             <div><span id="days">0</span><br>Días</div>
@@ -476,7 +496,7 @@ Nuestra Historia
             <div><span id="seconds">0</span><br>Seg</div>
         </div>
         <br>
-        <p>¡Con cariño esperamos brindar juntos por nuestra felicidad!</p>
+        
     </div>
     
 </div>
@@ -485,6 +505,9 @@ Nuestra Historia
 <br>
 
 </section>
+<footer class="footer">
+    <p class="footer-msg">¡Con cariño esperamos brindar 
+    juntos por nuestra felicidad!</p></footer>
 
 <script>
 
@@ -538,7 +561,7 @@ function startMusic() {
 }
 
 /* COUNTDOWN */
-const weddingDate = new Date("2026-06-13T00:00:00").getTime();
+const weddingDate = new Date("2026-06-13T14:30:00").getTime();
 
 setInterval(()=>{
 
