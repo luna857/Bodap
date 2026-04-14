@@ -492,33 +492,40 @@ function moveSlide(step){
     slider.style.transform = `translateX(-${index * 100}%)`;
 }
 
-/* AUDIO FIX DEFINITIVO MÓVIL */
 const audio = document.getElementById("audio");
+let unlocked = false;
 let playing = false;
 
-function startMusic(){
-    audio.volume = 1;
+// desbloqueo automático en primer toque del usuario
+document.addEventListener("click", () => {
+    if (!unlocked) {
+        audio.play().then(() => {
+            audio.pause();
+            unlocked = true;
+        }).catch(() => {});
+    }
+}, { once: true });
 
-    const playPromise = audio.play();
+function startMusic() {
 
-    if(playPromise !== undefined){
-        playPromise.then(() => {
+    if (!unlocked) {
+        alert("Toca la pantalla primero para activar el audio 🎵");
+        return;
+    }
+
+    if (!playing) {
+        audio.play().then(() => {
             playing = true;
             document.getElementById("musicBtn").innerText = "⏸ Pausar música";
         }).catch(() => {
-            alert("🔊 Toca nuevamente el botón para activar el audio en tu celular");
+            alert("Tu navegador bloqueó el audio. Vuelve a intentar.");
         });
-    }
-}
-
-/* pausa segura */
-document.getElementById("musicBtn").addEventListener("click", function(){
-    if(playing){
+    } else {
         audio.pause();
         playing = false;
-        this.innerText = "🎵 Escuchar nuestra canción";
+        document.getElementById("musicBtn").innerText = "🎵 Escuchar nuestra canción";
     }
-});
+}
 
 /* COUNTDOWN */
 const weddingDate = new Date("2026-06-13T00:00:00").getTime();
