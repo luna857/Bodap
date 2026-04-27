@@ -319,11 +319,88 @@ body > *{
     margin-top:10px;
     color:rgb(234, 234, 225);
 }
+/* INTRO */
+#intro{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:#f8f5f2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    transition:opacity 1s ease;
+}
+
+/* ARO */
+.ring-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* círculo dorado */
+.ring{
+    width:180px;
+    height:180px;
+    border:4px solid #d4af7f;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    animation:fadeIn 1.5s ease;
+}
+
+/* interior */
+.ring-inner{
+    width:140px;
+    height:140px;
+    border:1px solid #d4af7f;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* texto */
+.ring-inner h2{
+    font-family:'Playfair Display', serif;
+    font-size:28px;
+    letter-spacing:3px;
+    color:#b8965a;
+}
+
+/* animación */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:scale(0.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* ocultar web al inicio */
+#contenido{
+    display:none;
+}
 </style>
 </head>
 
 <body>
-    
+    <!-- INTRO ARO -->
+<div id="intro">
+    <div class="ring-container" id="ring">
+        <div class="ring">
+            <div class="ring-inner">
+                <h2>M & C</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="contenido">
 
 <!-- HERO -->
 <section class="hero">
@@ -574,7 +651,26 @@ setInterval(()=>{
     document.getElementById("seconds").innerText = Math.floor((diff % 60000)/1000);
 
 },1000);
+// ANIMACIÓN INTRO ARO
+
+// pequeño zoom elegante
+setTimeout(()=>{
+    document.getElementById("ring").style.transform = "scale(1.1)";
+    document.getElementById("ring").style.transition = "transform 1s ease";
+},1500);
+
+// fade out
+setTimeout(()=>{
+    document.getElementById("intro").style.opacity = "0";
+},3000);
+
+// mostrar tu web
+setTimeout(()=>{
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("contenido").style.display = "block";
+},4000);
 </script>
 
+</div>
 </body>
 </html>
