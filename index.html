@@ -1,510 +1,561 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Boda Morazán Aldaco</title>
+    <title>Boda Morazán Aldaco</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body{
-    font-family:'Noto Serif', serif;
-    color:#333;
-}
+        body {
+            font-family: 'Noto Serif', serif;
+            color: #333;
+        }
 
-/* HERO */
-.hero{
-    height:100vh;
-    position:relative;
-    overflow:hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
+        /* HERO */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.hero-slider{
-    position:absolute;
-    width:100%;
-    height:100%;
-}
+        .hero-slider {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
 
-.hero-slider img{
-    position:absolute;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    opacity:0;
-    transition:opacity 1s ease-in-out;
-}
+        .hero-slider img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
 
-.hero-slider img.active{
-    opacity:1;
-}
+        .hero-slider img.active {
+            opacity: 1;
+        }
 
-.hero::before{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.4);
-    top:0;
-    left:0;
-    z-index:1;
-}
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
 
-.hero-content{
-    position:relative;
-    z-index:2;
-    color:rgb(234, 234, 225);
-    text-align:center;
-}
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: rgb(234, 234, 225);
+            text-align: center;
+        }
 
-.hero h1{
-    font-family:'Playfair Display', serif;
-    font-size:60px;
-    letter-spacing:3px;
-}
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            letter-spacing: 3px;
+        }
 
-.hero p{
-    margin:20px 0;
-    font-size:18px;
-}
+        .hero p {
+            margin: 20px 0;
+            font-size: 18px;
+        }
 
-/* SECCIONES */
-.section{
-    padding:100px 20px;
-    text-align:center;
-}
+        /* SECCIONES */
+        .section {
+            padding: 100px 20px;
+            text-align: center;
+        }
 
-.light{
-    background-image: url("mr.jpg");
-    background-size: cover;
-    background-position: center;
-}
+        .light {
+            background-image: url("mr.jpg");
+            background-size: cover;
+            background-position: center;
+        }
 
-/* HISTORIA */
-.row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:60px;
-    align-items:center;
-    justify-content:center;
-}
+        /* HISTORIA */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px;
+            align-items: center;
+            justify-content: center;
+        }
 
-.col{
-    flex:1 1 400px;
-}
+        .col {
+            flex: 1 1 400px;
+        }
 
-.col img{
-    width:100%;
-    border-radius:15px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.15);
-}
+        .col img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
 
-.col p{
-    font-size:18px;
-    line-height:1.8;
-    text-align:left;
-    max-width:500px;
-    margin:auto;
-}
+        .col p {
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: left;
+            max-width: 500px;
+            margin: auto;
+        }
 
-/* GALERÍA */
-.gallery-container{
-    position:relative;
-    max-width:800px;
-    margin:auto;
-    overflow:hidden;
-    border-radius:15px;
-}
+        /* GALERÍA */
+        .gallery-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 15px;
+        }
 
-.gallery-slider{
-    display:flex;
-    width:100%;
-    transition: transform 0.6s ease-in-out;
-}
+        .gallery-slider {
+            display: flex;
+            width: 100%;
+            transition: transform 0.6s ease-in-out;
+        }
 
-.gallery-slider img{
-    width:100%;
-    min-width:100%;
-    height:400px;
-    object-fit: contain;
-    
-    padding:10px;
-    display:block;
-}
+        .gallery-slider img {
+            width: 100%;
+            min-width: 100%;
+            height: 400px;
+            object-fit: contain;
 
-/* FLECHAS */
-.arrow{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    font-size:28px;
-    color:white;
-    background:rgba(0,0,0,0.4);
-    padding:10px;
-    cursor:pointer;
-    border-radius:50%;
-}
+            padding: 10px;
+            display: block;
+        }
 
-.left{left:10px;}
-.right{right:10px;}
+        /* FLECHAS */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 28px;
+            color: white;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
 
-/* BOTÓN MÚSICA */
-.music-btn{
-    margin-top:20px;
-    padding:12px 25px;
-    border:none;
-    border-radius:30px;
-    background:#222;
-    color:white;
-    cursor:pointer;
-}
+        .left {
+            left: 10px;
+        }
 
-/* TARJETAS */
-.cards{
-    display:flex;
-    flex-wrap:wrap;
-    gap:25px;
-    justify-content:center;
-    margin-top:40px;
-}
+        .right {
+            right: 10px;
+        }
 
-.card{
-    width:260px;
-    background:rgba(255,255,255,0.75);
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
-    backdrop-filter: blur(5px);
-}
+        /* BOTÓN MÚSICA */
+        .music-btn {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            background: #222;
+            color: white;
+            cursor: pointer;
+        }
 
-.card h3{
-    font-family:'Playfair Display', serif;
-    margin-bottom:10px;
-}
+        /* TARJETAS */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin-top: 40px;
+        }
 
-/* COUNTDOWN */
-.countdown-wrapper{
-    margin-top:50px;
-}
+        .card {
+            width: 260px;
+            background: rgba(255, 255, 255, 0.75);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
 
-.countdown-title{
-    font-family:'Playfair Display', serif;
-    font-size:30px;
-    margin-bottom:20px;
-}
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+        }
 
-.countdown{
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    font-size:20px;
-    font-weight:bold;
-}
+        /* COUNTDOWN */
+        .countdown-wrapper {
+            margin-top: 50px;
+        }
 
-.countdown div{
-    background:rgba(255,255,255,0.7);
-    padding:20px;
-    border-radius:12px;
-    min-width:90px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.1);
-}
+        .countdown-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
 
-/* VINTAGE (FIX MÓVIL) */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-    background-image: url("mv.jpg");
-    background-size: cover;
-    opacity: 0.60;
-    mix-blend-mode: multiply;
-}
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            font-size: 20px;
+            font-weight: bold;
+        }
 
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-    background: radial-gradient(circle at center,
-        rgba(255,255,255,0) 40%,
-        rgba(0,0,0,0.25) 100%);
-}
+        .countdown div {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 12px;
+            min-width: 90px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
 
-body > *{
-    position:relative;
-    z-index:1;
-}
+        /* VINTAGE (FIX MÓVIL) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background-image: url("mv.jpg");
+            background-size: cover;
+            opacity: 0.60;
+            mix-blend-mode: multiply;
+        }
 
-/* FIX MÓVIL VINTAGE */
-@media (max-width:768px){
-    body::before{
-        opacity:0.25;
-        background-attachment: scroll;
-    }
-    body::after{
-        opacity:0.15;
-    }
-}
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(circle at center,
+                    rgba(255, 255, 255, 0) 40%,
+                    rgba(0, 0, 0, 0.25) 100%);
+        }
 
-/* RESPONSIVE */
-@media (max-width:1024px){
-    .hero h1{font-size:45px;}
-    .row{flex-direction:column;}
-    .col p{text-align:center;}
-}
+        body>* {
+            position: relative;
+            z-index: 1;
+        }
 
-@media (max-width:600px){
-    .hero h1{font-size:32px;}
-    .section{padding:60px 15px;}
-    .gallery-slider img{height:250px;}
-}
-.countdown{
-    flex-wrap:wrap;
-}
+        /* FIX MÓVIL VINTAGE */
+        @media (max-width:768px) {
+            body::before {
+                opacity: 0.25;
+                background-attachment: scroll;
+            }
 
-.countdown div{
-    flex: 1 1 70px;
-    text-align:center;
-}
-@media (max-width:600px){
-    .countdown{
-        gap:10px;
-    }
+            body::after {
+                opacity: 0.15;
+            }
+        }
 
-    .countdown div{
-        min-width:60px;
-        padding:12px;
-        font-size:12px;
-    }
-}
-.footer{
-    text-align:center;
-    padding:40px 20px;
-    background:black;
-    color:#555;
-    font-size:14px;
-    margin-top:50px;
-    border-top:1px solid rgba(0,0,0,0.05);
-}
+        /* RESPONSIVE */
+        @media (max-width:1024px) {
+            .hero h1 {
+                font-size: 45px;
+            }
 
-.footer p{
-    margin:5px 0;
-}
+            .row {
+                flex-direction: column;
+            }
 
-.footer-msg{
-    font-family:'Playfair Display', serif;
-    font-size:16px;
-    margin-top:10px;
-    color:rgb(234, 234, 225);
-}
-/* ===== INTRO PREMIUM ===== */
-#intro{
-    position:fixed;
-    width:100%;
-    height:100vh;
-    background:linear-gradient(#fdfaf6,#f3efe9);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-    transition:opacity 1s ease;
-}
+            .col p {
+                text-align: center;
+            }
+        }
 
-/* CONTENEDOR */
-.lux-container{
-    position:relative;
-    text-align:center;
-    animation:fadeUp 2s ease;
-}
+        @media (max-width:600px) {
+            .hero h1 {
+                font-size: 32px;
+            }
 
-/* ARO EXTERIOR */
-.lux-ring{
-    width:200px;
-    height:200px;
-    border:3px solid #d4af7f;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin:auto;
-    position:relative;
-}
+            .section {
+                padding: 60px 15px;
+            }
 
-/* BRILLO DORADO */
-.lux-ring::after{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    border-radius:50%;
-    background:radial-gradient(circle, rgba(212,175,127,0.2), transparent);
-    animation:glow 2s infinite alternate;
-}
+            .gallery-slider img {
+                height: 250px;
+            }
+        }
 
-/* INTERIOR */
-.lux-inner{
-    width:150px;
-    height:150px;
-    border:1px solid #d4af7f;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
+        .countdown {
+            flex-wrap: wrap;
+        }
 
-/* TEXTO */
-.lux-text{
-    font-family:'Great Vibes', cursive !important;
-    font-size:52px;
-    letter-spacing:3px;
-    color:#d4af7f;
-}
+        .countdown div {
+            flex: 1 1 70px;
+            text-align: center;
+        }
 
-/* LÍNEAS DECORATIVAS */
-.lux-line{
-    position:absolute;
-    width:120px;
-    height:1px;
-    background:#d4af7f;
-    left:50%;
-    transform:translateX(-50%);
-}
+        @media (max-width:600px) {
+            .countdown {
+                gap: 10px;
+            }
 
-.lux-line.top{ top:-40px; }
-.lux-line.bottom{ bottom:-40px; }
+            .countdown div {
+                min-width: 60px;
+                padding: 12px;
+                font-size: 12px;
+            }
+        }
 
-/* ANIMACIONES */
-@keyframes fadeUp{
-    from{ opacity:0; transform:translateY(30px);}
-    to{ opacity:1; transform:translateY(0);}
-}
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: black;
+            color: #555;
+            font-size: 14px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
 
-@keyframes glow{
-    from{ opacity:0.3;}
-    to{ opacity:0.8;}
-}
+        .footer p {
+            margin: 5px 0;
+        }
 
-/* ocultar contenido */
-#contenido{
-    display:block;
-}
-#intro{
-    pointer-events:none;
-}
-</style>
+        .footer-msg {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            margin-top: 10px;
+            color: rgb(234, 234, 225);
+        }
+
+        /* ===== INTRO PREMIUM ===== */
+        #intro {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(#fdfaf6, #f3efe9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease;
+        }
+
+        /* CONTENEDOR */
+        .lux-container {
+            position: relative;
+            text-align: center;
+            animation: fadeUp 2s ease;
+        }
+
+        /* ARO EXTERIOR */
+        .lux-ring {
+            width: 200px;
+            height: 200px;
+            border: 3px solid #d4af7f;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            position: relative;
+        }
+
+        /* BRILLO DORADO */
+        .lux-ring::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 127, 0.2), transparent);
+            animation: glow 2s infinite alternate;
+        }
+
+        /* INTERIOR */
+        .lux-inner {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #d4af7f;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* TEXTO */
+        .lux-text {
+            font-family: 'Great Vibes', cursive !important;
+            font-size: 52px;
+            letter-spacing: 3px;
+            color: #d4af7f;
+        }
+
+        /* LÍNEAS DECORATIVAS */
+        .lux-line {
+            position: absolute;
+            width: 120px;
+            height: 1px;
+            background: #d4af7f;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .lux-line.top {
+            top: -40px;
+        }
+
+        .lux-line.bottom {
+            bottom: -40px;
+        }
+
+        /* ANIMACIONES */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                opacity: 0.3;
+            }
+
+            to {
+                opacity: 0.8;
+            }
+        }
+
+        /* ocultar contenido */
+        #contenido {
+            display: block;
+        }
+
+        #intro {
+            pointer-events: none;
+        }
+    </style>
 </head>
 
 <body>
     <!-- INTRO PREMIUM -->
-<div id="intro">
-    <div class="lux-container" id="luxIntro">
+    <div id="intro">
+        <div class="lux-container" id="luxIntro">
 
-        <div class="lux-ring">
-            <div class="lux-inner">
-                <span class="lux-text">M&nbsp;&amp;&nbsp;C</span>
+            <div class="lux-ring">
+                <div class="lux-inner">
+                    <span class="lux-text">M&nbsp;&amp;&nbsp;C</span>
+                </div>
             </div>
-        </div>
 
-        <!-- decoraciones -->
-        <div class="lux-line top"></div>
-        <div class="lux-line bottom"></div>
+            <!-- decoraciones -->
+            <div class="lux-line top"></div>
+            <div class="lux-line bottom"></div>
 
-    </div>
-</div>
-<div id="contenido">
-
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-slider" id="heroSlider">
-        <img src="aro.jpeg" class="active">
-    </div>
-
-    <div class="hero-content">
-        <h1>Melissa Aldaco & Carlos Morazán</h1>
-        <p>13 · 06 · 26</p>
-        <p><b>Un día, un instante, una historia que comienza…</b></p>
-    </div>
-</section>
-<br>
-
-<!-- HISTORIA -->
-<section class="section light">
-    <div class="row">
-        <div class="col">
-            <img src="foto1.jpeg">
-        </div>
-        <div class="col">
-            <p>
-            Con el corazón lleno de ilusión les invitamos a ser parte de 
-            nuestra unión matrimonial, donde cada detalle ha sido cuidadosamente elegido para 
-            celebrar con ustedes nuestra felicidad.
-            </p>
         </div>
     </div>
-</section>
+    <div id="contenido">
 
-<!-- GALERÍA -->
-<section class="section">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-slider" id="heroSlider">
+                <img src="aro.jpeg" class="active">
+            </div>
 
-<h2 style="font-family:'Playfair Display'; margin-bottom:30px;">
-Nuestra Historia
-</h2>
+            <div class="hero-content">
+                <h1>Melissa Aldaco & Carlos Morazán</h1>
+                <p>13 · 06 · 26</p>
+                <p><b>Un día, un instante, una historia que comienza…</b></p>
+            </div>
+        </section>
+        <br>
 
-<div class="gallery-container">
-    <div class="gallery-slider" id="slider">
-        <img src="ft1.jpeg">
-        <img src="ft2.jpeg">
-        <img src="ft3.jpeg">
-        <img src="ft4.jpeg">
-        <img src="ft5.jpeg">
-        <img src="ft6.jpeg">
-        <img src="ft7.jpeg">
-        <img src="ft8.jpeg">
-        <img src="ft9.jpeg">
-        <img src="ft10.jpeg">
-        <img src="ft11.jpeg">
-        <img src="ft12.jpeg">
-        <img src="ft13.jpeg">
-        <img src="ft14.jpeg">
-    </div>
+        <!-- HISTORIA -->
+        <section class="section light">
+            <div class="row">
+                <div class="col">
+                    <img src="foto1.jpeg">
+                </div>
+                <div class="col">
+                    <p>
+                        Con el corazón lleno de ilusión les invitamos a ser parte de
+                        nuestra unión matrimonial, donde cada detalle ha sido cuidadosamente elegido para
+                        celebrar con ustedes nuestra felicidad.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-    <div class="arrow left" onclick="moveSlide(-1)">❮</div>
-    <div class="arrow right" onclick="moveSlide(1)">❯</div>
-</div>
+        <!-- GALERÍA -->
+        <section class="section">
 
-<button class="music-btn" onclick="startMusic()" id="musicBtn">
-▶ Escucha nuestra canción
-</button>
+            <h2 style="font-family:'Playfair Display'; margin-bottom:30px;">
+                Nuestra Historia
+            </h2>
 
-<audio id="audio" loop playsinline preload="auto">
-    <source src="musica.mp3" type="audio/mpeg">
-</audio>
+            <div class="gallery-container">
+                <div class="gallery-slider" id="slider">
+                    <img src="ft1.jpeg">
+                    <img src="ft2.jpeg">
+                    <img src="ft3.jpeg">
+                    <img src="ft4.jpeg">
+                    <img src="ft5.jpeg">
+                    <img src="ft6.jpeg">
+                    <img src="ft7.jpeg">
+                    <img src="ft8.jpeg">
+                    <img src="ft9.jpeg">
+                    <img src="ft10.jpeg">
+                    <img src="ft11.jpeg">
+                    <img src="ft12.jpeg">
+                    <img src="ft13.jpeg">
+                    <img src="ft14.jpeg">
+                    <img src="ft15.jpeg">
+                    <img src="ft16.jpeg">
+                    <img src="ft17.jpeg">
+                    <img src="ft18.jpeg">
+                </div>
+
+                <div class="arrow left" onclick="moveSlide(-1)">❮</div>
+                <div class="arrow right" onclick="moveSlide(1)">❯</div>
+            </div>
+
+            <button class="music-btn" onclick="startMusic()" id="musicBtn">
+                ▶ Escucha nuestra canción
+            </button>
+
+            <audio id="audio" loop playsinline preload="auto">
+                <source src="musica.mp3" type="audio/mpeg">
+            </audio>
 
 
 
-<!-- 💒 TARJETAS DE NOTAS <div class="cards">
+            <!-- 💒 TARJETAS DE NOTAS <div class="cards">
         <div class="card" style="width:100%; max-width:700px;">
 
             
@@ -528,44 +579,57 @@ Nuestra Historia
         </div>
     </div>
     </div>-->
-     
-    <div class="cards">
-        <div class="card">
-            <h3>Dress Code</h3>
-            <p>Formal, elegante. Evitar tonos blancos y beige.</p>
-        </div>
 
-        <div class="card">
-            <h3>Ambiente</h3>
-            <p>Para preservar la atmósfera soñada, la velada ha sido diseñada 
-                únicamente para adultos. Les solicitamos la no asistencia de menores de edad. </p>
-        </div>
+            <div class="cards">
+                <div class="card">
+                    <h3>Dress Code</h3>
+                    <p>Formal, elegante. Evitar tonos blancos y beige.</p>
+                </div>
 
-        <div class="card">
-            <h3>Obsequios</h3>
-            <p>El verdadero tesoro de nuestra celebración 
-                será tenerlos con nosotros. No se requieren obsequios. </p>
-        </div>
-    </div>
-    
+                <div class="card">
+                    <h3>Ambiente</h3>
+                    <p>Para preservar la atmósfera soñada, la velada ha sido diseñada
+                        únicamente para adultos. Les solicitamos la no asistencia de menores de edad. </p>
+                </div>
 
-    <div class="cards">
-        <div class="card" style="width:100%; max-width:700px;">
-            <h3>¿Cómo llegar al evento?</h3>
-            <br>
-
-            <div style="width:100%; height:300px; margin-top:15px; border-radius:15px; overflow:hidden;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.1066793202544!2d-87.17280149999999!3d14.1298234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6fa3461c1d0663%3A0xc6901db94a3f8da5!2sEl%20Mirador!5e0!3m2!1ses-419!2shn!4v1776134831405!5m2!1ses-419!2shn" 
-                width="600" height="450" style="border:0;" 
-                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="card">
+                    <h3>Obsequios</h3>
+                    <p>El verdadero tesoro de nuestra celebración
+                        será tenerlos con nosotros. No se requieren obsequios. </p>
+                </div>
             </div>
-            <br>
-            <p>El Hatillo km. 8.5, desvío hacia Restaurante 
-                La Cumbre, Circuito El Bosque. Tegucigalpa, HN</p>
-        </div>
-    </div>
 
-<!-- UBICACIÓN div class="cards">
+
+            <div class="cards">
+                <div class="card" style="width:100%; max-width:700px;">
+                    <h3>¿Cómo llegar al evento?</h3>
+                    <br>
+
+                    <div style="width:100%; height:300px; margin-top:15px; border-radius:15px; overflow:hidden;">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.1066793202544!2d-87.17280149999999!3d14.1298234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6fa3461c1d0663%3A0xc6901db94a3f8da5!2sEl%20Mirador!5e0!3m2!1ses-419!2shn!4v1776134831405!5m2!1ses-419!2shn"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <br>
+                    <p>El Hatillo km. 8.5, desvío hacia Restaurante
+                        La Cumbre, Circuito El Bosque. Tegucigalpa, HN</p>
+                </div>
+            </div>
+            <!-- HORA DEL EVENTO -->
+            <div class="cards">
+                <div class="card" style="width:100%; max-width:700px;">
+                    <h3>Hora del Evento</h3>
+                    <br>
+                    <p>La recepción de invitados comenzará a las 2:30 p. m.</p>
+                    <br>
+                    <p>Agradecemos su puntualidad.</p>
+
+                   
+                    
+                </div>
+            </div>
+            <!-- UBICACIÓN div class="cards">
     <div class="card" style="width:100%; max-width:700px;">
         <h3>¿Cómo llegar?</h3>
 
@@ -578,131 +642,132 @@ Nuestra Historia
         <p>El Hatillo km. 8.5, Tegucigalpa</p>
     </div>
 </div>-->
-<!-- RSVP -->
-<div class="cards">
-    <div class="card" style="width:100%; max-width:700px;">
-        <h3>RSVP</h3>
-        <p>Confirma tu asistencia dando clic en el botón:</p>
+            <!-- RSVP -->
+            <div class="cards">
+                <div class="card" style="width:100%; max-width:700px;">
+                    <h3>RSVP</h3>
+                    <p>Confirma tu asistencia dando clic en el botón:</p>
 
-        <button class="music-btn"
-            style="width:100%; margin-top:20px;"
-            onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd_N6K35Vhep4uJ1UHHB9HjdXrJzP765nTKJwPcma829F7EhQ/viewform?usp=header','_blank')">
-            💍 
-        </button>
+                    <button class="music-btn" style="width:100%; margin-top:20px;"
+                        onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd_N6K35Vhep4uJ1UHHB9HjdXrJzP765nTKJwPcma829F7EhQ/viewform?usp=header','_blank')">
+                        💍
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- COUNTDOWN -->
+            <div class="cards">
+                <div class="card" style="width:100%; max-width:700px;">
+                    <h3 class="countdown-title"><b>Faltan para el gran día</b></h3>
+                    <br>
+
+                    <div class="countdown">
+                        <div><span id="days">0</span><br>Días</div>
+                        <div><span id="hours">0</span><br>Horas</div>
+                        <div><span id="minutes">0</span><br>Min</div>
+                        <div><span id="seconds">0</span><br>Seg</div>
+                    </div>
+                    <br>
+
+                </div>
+
+            </div>
+            <br>
+
+            <br>
+
+        </section>
+        <footer class="footer">
+            <p class="footer-msg">¡Con cariño esperamos brindar
+                juntos por nuestra felicidad!</p>
+        </footer>
+
+        <script>
+
+            let index = 0;
+
+            function moveSlide(step) {
+                const slider = document.getElementById("slider");
+                const total = slider.children.length;
+
+                index += step;
+
+                if (index < 0) index = total - 1;
+                if (index >= total) index = 0;
+
+                slider.style.transform = `translateX(-${index * 100}%)`;
+            }
+
+            const audio = document.getElementById("audio");
+            let unlocked = false;
+            let playing = false;
+
+            // desbloqueo automático en primer toque del usuario
+            document.addEventListener("click", () => {
+                if (!unlocked) {
+                    audio.play().then(() => {
+                        audio.pause();
+                        unlocked = true;
+                    }).catch(() => { });
+                }
+            }, { once: true });
+
+            function startMusic() {
+
+                if (!unlocked) {
+                    alert("Toca la pantalla primero para activar el audio 🎵");
+                    return;
+                }
+
+                if (!playing) {
+                    audio.play().then(() => {
+                        playing = true;
+                        document.getElementById("musicBtn").innerText = "⏸ Pausar música";
+                    }).catch(() => {
+                        alert("Tu navegador bloqueó el audio. Vuelve a intentar.");
+                    });
+                } else {
+                    audio.pause();
+                    playing = false;
+                    document.getElementById("musicBtn").innerText = "🎵 Escuchar nuestra canción";
+                }
+            }
+
+            /* COUNTDOWN */
+            const weddingDate = new Date("2026-06-13T14:30:00").getTime();
+
+            setInterval(() => {
+
+                const now = new Date().getTime();
+                const diff = weddingDate - now;
+
+                document.getElementById("days").innerText = Math.floor(diff / 86400000);
+                document.getElementById("hours").innerText = Math.floor((diff % 86400000) / 3600000);
+                document.getElementById("minutes").innerText = Math.floor((diff % 3600000) / 60000);
+                document.getElementById("seconds").innerText = Math.floor((diff % 60000) / 1000);
+
+            }, 1000);
+            // ANIMACIÓN LUJO
+
+            // zoom elegante
+            // animación leve
+            setTimeout(() => {
+                document.getElementById("luxIntro").style.transform = "scale(1.05)";
+                document.getElementById("luxIntro").style.transition = "transform 0.6s ease";
+            }, 300);
+
+            /* 3 segundos visible */
+            setTimeout(() => {
+                document.getElementById("intro").style.opacity = "0";
+            }, 3000);
+
+            setTimeout(() => {
+                document.getElementById("intro").style.display = "none";
+                document.getElementById("contenido").style.display = "block";
+            }, 3600);
+        </script>
     </div>
-</div>
-
-
-<!-- COUNTDOWN -->
-<div class="cards">
-    <div class="card" style="width:100%; max-width:700px;">
-        <h3 class="countdown-title"><b>Faltan para el gran día</b></h3>
-        <br>
-
-        <div class="countdown">
-            <div><span id="days">0</span><br>Días</div>
-            <div><span id="hours">0</span><br>Horas</div>
-            <div><span id="minutes">0</span><br>Min</div>
-            <div><span id="seconds">0</span><br>Seg</div>
-        </div>
-        <br>
-        
-    </div>
-    
-</div>
-<br>
-
-<br>
-
-</section>
-<footer class="footer">
-    <p class="footer-msg">¡Con cariño esperamos brindar 
-    juntos por nuestra felicidad!</p></footer>
-
-<script>
-
-let index = 0;
-
-function moveSlide(step){
-    const slider = document.getElementById("slider");
-    const total = slider.children.length;
-
-    index += step;
-
-    if(index < 0) index = total - 1;
-    if(index >= total) index = 0;
-
-    slider.style.transform = `translateX(-${index * 100}%)`;
-}
-
-const audio = document.getElementById("audio");
-let unlocked = false;
-let playing = false;
-
-// desbloqueo automático en primer toque del usuario
-document.addEventListener("click", () => {
-    if (!unlocked) {
-        audio.play().then(() => {
-            audio.pause();
-            unlocked = true;
-        }).catch(() => {});
-    }
-}, { once: true });
-
-function startMusic() {
-
-    if (!unlocked) {
-        alert("Toca la pantalla primero para activar el audio 🎵");
-        return;
-    }
-
-    if (!playing) {
-        audio.play().then(() => {
-            playing = true;
-            document.getElementById("musicBtn").innerText = "⏸ Pausar música";
-        }).catch(() => {
-            alert("Tu navegador bloqueó el audio. Vuelve a intentar.");
-        });
-    } else {
-        audio.pause();
-        playing = false;
-        document.getElementById("musicBtn").innerText = "🎵 Escuchar nuestra canción";
-    }
-}
-
-/* COUNTDOWN */
-const weddingDate = new Date("2026-06-13T14:30:00").getTime();
-
-setInterval(()=>{
-
-    const now = new Date().getTime();
-    const diff = weddingDate - now;
-
-    document.getElementById("days").innerText = Math.floor(diff / 86400000);
-    document.getElementById("hours").innerText = Math.floor((diff % 86400000)/3600000);
-    document.getElementById("minutes").innerText = Math.floor((diff % 3600000)/60000);
-    document.getElementById("seconds").innerText = Math.floor((diff % 60000)/1000);
-
-},1000);
-// ANIMACIÓN LUJO
-
-// zoom elegante
-// animación leve
-setTimeout(()=>{
-    document.getElementById("luxIntro").style.transform = "scale(1.05)";
-    document.getElementById("luxIntro").style.transition = "transform 0.6s ease";
-},300);
-
-/* 3 segundos visible */
-setTimeout(()=>{
-    document.getElementById("intro").style.opacity = "0";
-},3000);
-
-setTimeout(()=>{
-    document.getElementById("intro").style.display = "none";
-    document.getElementById("contenido").style.display = "block";
-},3600);
-</script>
-</div>
 </body>
+
 </html>
